@@ -13,15 +13,15 @@ function CrashGame() {
     setTimeout(() => {
       if (outcome < multiplier) {
         // You crashed at ${outcome}!
-        setRoundOutcome(`Crashed  at ${outcome}!
+        setRoundOutcome(`Last Crash ${outcome}!
         You lost your bet of ${betAmount} !!`);
         // Update the balance
         setBalance((parseFloat(balance - betAmount)));
       } else {
         // You survived this round
         setRoundOutcome(
-          `Crashed  at ${outcome} 
-          You won ${betAmount}!`,
+          `Last Crash ${outcome} 
+          You won ${betAmount*multiplier}!`,
           // Update the balance
             setBalance(parseFloat(balance + ((outcome * multiplier) - betAmount)))
         );
