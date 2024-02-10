@@ -2,7 +2,7 @@
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
-    padding: 15px;
+    padding: 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -10,15 +10,31 @@
     margin: 4px 2px;
     cursor: pointer;
   }
+  
+  .button:hover {
+    background-color: #45a049;
+  }
 
+  .button:active {
+    background-color: #45a049;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  label {
+    margin: 10px;
+    font-size: 20px;
+    color: white;
+  }
+  
   .input {
     border: none;
-    padding: 15px;
-    width: 50px;
+    padding: 10px 0px;
+    width: 15%;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    margin: 40px 20px;
+    font-size: 14px;
+    margin: 40px 10px;
     cursor: pointer;
   }

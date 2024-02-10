@@ -40,11 +40,12 @@ function CrashGame() {
       <h1>Welcome to the Crash Game!</h1>
       <h2>Your current balance is: {balance}</h2>
       <form onSubmit={handleSubmit}>
+      <button className="button" type="submit">Start</button>
+      <span> </span>
         <label>
           Bet amount:
-          <input className="input" type="number" value={betAmount} onChange={handleBetChange} />
+          <input className="input" type="number" placeholder="Enter Bet" value={betAmount} onChange={handleBetChange} />
         </label>
-        <button className="button" type="submit">Start</button>
       </form>
       <p>{roundOutcome}</p>
     </div>
