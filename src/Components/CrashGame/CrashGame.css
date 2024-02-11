@@ -2,12 +2,12 @@
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
-    padding: 10px;
-    text-align: center;
+    padding: 4px;
+    text-align: left;
     text-decoration: none;
-    display: inline-block;
+    display: inline-flex;
     font-size: 16px;
-    margin: 4px 2px;
+    margin: 0 0 0 -5%;
     cursor: pointer;
   }
   
@@ -22,19 +22,30 @@
   }
 
   label {
-    margin: 10px;
-    font-size: 20px;
+    margin: 1px;
+    font-size: 16px;
     color: white;
   }
   
   .input {
     border: none;
-    padding: 10px 0px;
-    width: 15%;
+    padding: 4px 0px;
+    width: 6%;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
     font-size: 14px;
-    margin: 40px 10px;
+    margin: 10px 10px;
     cursor: pointer;
+  }
+
+  .balance {
+    margin-left: -20%;
+    color: #4CAF50;
+  }
+
+  .last-crash {
+    margin-left: -45%;
+  }
+
+  crassArray {
+    margin-left: -45%;
   }

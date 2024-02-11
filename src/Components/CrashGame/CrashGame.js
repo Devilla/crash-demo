@@ -6,29 +6,30 @@ function CrashGame() {
   const [betAmount, setBetAmount] = useState(10);
   const [multiplier, setMultiplier] = useState(2);
   const [roundOutcome, setRoundOutcome] = useState("");
-
+  const [crashArray, setCrashArray] = useState([]);
+  const [outcome, setOutcome] = useState(0);
   const playRound = () => {
     // Generate a random outcome for the round  (between 1 and 10)  
-    const outcome = (Math.random(100)*10).toFixed(2);
+    setOutcome(parseInt(Math.random(100)*10)) //.toFixed(2);
     setTimeout(() => {
       if (outcome < multiplier) {
         // You crashed at ${outcome}!
-        setRoundOutcome(`Last Crash ${outcome}!
-        You lost your bet of ${betAmount} !!`);
+        console.log(`Crash: ${outcome}! You lost your bet of ${betAmount} !!`);
         // Update the balance
-        setBalance((parseFloat(balance - betAmount)));
+        setBalance((parseInt(balance - betAmount)));
+        // Add the outcome to the crash array
+        setCrashArray([...crashArray, outcome]);
       } else {
         // You survived this round
-        setRoundOutcome(
-          `Last Crash ${outcome} 
-          You won ${betAmount*multiplier}!`,
+        console.log(
+          `Crash: ${outcome} You won ${betAmount*multiplier}!`,
           // Update the balance
-            setBalance(parseFloat(balance + ((outcome * multiplier) - betAmount)))
+            setBalance(parseInt(balance + ((outcome * multiplier) - betAmount)))
         );
+        // Add the outcome to the crash array
+        setCrashArray([...crashArray, outcome]);
       }
-    }, outcome * 1000);
-
-
+    }, 1000);
   };
 
   // Handle the bet amount change
@@ -60,8 +61,9 @@ function CrashGame() {
 
   return (
     <div>
-      <h1>Welcome to the Crash Game!</h1>
-      <h2>Your current balance is: {balance}</h2>
+      <div className="balance">
+        <label className="balance">Balance: {balance}</label>
+      </div>
       <form onSubmit={handleSubmit}>
       <button className="button" type="submit">Start</button>
       <span> </span>
@@ -74,7 +76,13 @@ function CrashGame() {
           <input className="input" type="number" placeholder="2x" value={multiplier} onChange={handleMultiplierChange} />
         </label>
       </form>
-      <p>{roundOutcome}</p>
+   
+      {crashArray[0]!=null && <label className="last-crash">Last Crashes:</label>}
+      <div className="crashArray">
+        {crashArray && crashArray.map((crash, index) => (
+          <span style={{color:multiplier<crash?"#4CAF50":"red"}} key={index} className="crash">{crash} </span>
+        ))}
+        </div>
     </div>
   );
 }
