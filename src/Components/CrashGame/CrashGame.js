@@ -9,8 +9,6 @@ function CrashGame() {
   const [outcome, setOutcome] = useState(0);
   const [number, setNumber] = useState(0.01);
 
-
-
     // Generate a random outcome for the round  (between 1 and 10)  
     // setOutcome(parseFloat();
   const playRound = () => {

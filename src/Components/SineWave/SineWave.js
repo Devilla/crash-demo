@@ -36,7 +36,7 @@ const SineWave = () => {
             ctx.lineWidth = 2;
             ctx.stroke();
 
-            ctx.drawImage(imgObj, 350, 150); // Draw the image at (0, 0)
+            ctx.drawImage(imgObj, 740, 150); // Draw the image at (0, 0)
             
             phase += speed;
             requestAnimationFrame(animate);
