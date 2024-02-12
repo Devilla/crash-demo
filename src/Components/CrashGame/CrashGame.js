@@ -8,16 +8,17 @@ function CrashGame() {
   const [crashArray, setCrashArray] = useState([]);
   const [outcome, setOutcome] = useState(0);
   const [number, setNumber] = useState(0.01);
+  const [roundOutcome, setRoundOutcome] = useState("");
 
     // Generate a random outcome for the round  (between 1 and 10)  
     // setOutcome(parseFloat();
   const playRound = () => {
     setNumber(0.01);
-      // Generate a random outcome for the round  (between 1 and 10)  
-      setOutcome(parseFloat(Math.random(100)*10).toFixed(2));
-      const interval = setInterval(() => {
-        setNumber((number) => number + 0.01);
-      }, 10);
+    // Generate a random outcome for the round  (between 1 and 10)  
+    setOutcome(parseFloat(Math.random(100)*10).toFixed(2));
+    const interval = setInterval(() => {
+      setNumber((number) => number + 0.01);
+    }, 10);
   
       //stop the interval when numbre is greater than the outcome
       if (number >= outcome) {
@@ -25,11 +26,14 @@ function CrashGame() {
       }
     setTimeout(() => {
       if (outcome < multiplier) {
+
+        setRoundOutcome(`Multiplier crash at  ${outcome}!`);
         // Update the balance
         setBalance((parseFloat(balance - betAmount)));
         // Add the outcome to the crash array
         setCrashArray([...crashArray, outcome]);
       } else {
+        setRoundOutcome(`Multiplier crash at  ${outcome}!`);
           // Update the balance
             setBalance(parseFloat(balance + ((outcome * multiplier) - betAmount)))
         // Add the outcome to the crash array
@@ -80,6 +84,7 @@ function CrashGame() {
       
       <div className="balance">
         <label className="balance">${balance.toFixed(2)}</label>
+        <label>{roundOutcome}</label>
       </div>
       <form onSubmit={handleSubmit}>
       <button>Play</button>
