@@ -7,10 +7,15 @@ const SineWave = () => {
     useEffect(() => {
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
-        let amplitude = 30;
+        let amplitude = 10;
         let phase = 0;
-        let speed = 0.05;
-        let frequency = 0.02;      
+        let speed = 0.5;
+        let frequency = 0.05;      
+
+        let imgObj = new Image();
+        imgObj.src = 'rocket.png'; 
+
+
 
         const animate = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -30,6 +35,8 @@ const SineWave = () => {
             ctx.strokeStyle = 'green';
             ctx.lineWidth = 2;
             ctx.stroke();
+
+            ctx.drawImage(imgObj, 350, 150); // Draw the image at (0, 0)
             
             phase += speed;
             requestAnimationFrame(animate);

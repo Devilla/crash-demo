@@ -30,3 +30,11 @@
 .App-link {
   color: #61dafb;
 }
+
+.App-logo {
+  width: 60px;
+  height: 60px;
+  mix-blend-mode: color-burn;
+  background-color: black;
+  
+}

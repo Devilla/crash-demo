@@ -4,10 +4,10 @@
     color: white;
   }
   
-  .input {
+  input {
     border: none;
-    padding: 4px 0px;
-    width: 8%;
+    padding: 1px 0px;
+    width: 3%;
     text-align: center;
     font-size: small;
     margin: 10px 10px;
@@ -47,7 +47,7 @@ body{
 
 button{
   border:2px solid #fff;
-  padding:11px;
+  padding:2px;
   cursor:pointer;
   color:white;
   background:green

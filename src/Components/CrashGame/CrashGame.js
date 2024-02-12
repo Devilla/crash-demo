@@ -1,27 +1,5 @@
 import React, { useEffect,useState } from "react";
-import './CrashGame.css'; 
-
-  // Function to increment the number
-  function Counter({ outcome }) {
-    const [number, setNumber] = useState(0.01);
-    console.log(outcome, number, "outcome, number");
-
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setNumber((number) => number + 0.01);
-      }, 10);
-
-      if (number >= outcome) {
-        clearInterval(interval);
-      }
-
-      return () => {
-        clearInterval(interval);
-      };
-    }, [outcome]);
-
-    return <p id="nbr">{number.toFixed(2)}</p>;
-  }
+import './CrashGame.css';
 
 function CrashGame() {
   const [balance, setBalance] = useState(1000);
@@ -29,28 +7,41 @@ function CrashGame() {
   const [multiplier, setMultiplier] = useState(2);
   const [crashArray, setCrashArray] = useState([]);
   const [outcome, setOutcome] = useState(0);
-  const playRound = () => {
+  const [number, setNumber] = useState(0.01);
+
+
+
     // Generate a random outcome for the round  (between 1 and 10)  
-    setOutcome(parseFloat(Math.random(100)*10).toFixed(2));
+    // setOutcome(parseFloat();
+  const playRound = () => {
+    setNumber(0.01);
+      // Generate a random outcome for the round  (between 1 and 10)  
+      setOutcome(parseFloat(Math.random(100)*10).toFixed(2));
+      const interval = setInterval(() => {
+        setNumber((number) => number + 0.01);
+      }, 10);
+  
+      //stop the interval when numbre is greater than the outcome
+      if (number >= outcome) {
+        clearInterval(interval);
+      }
     setTimeout(() => {
       if (outcome < multiplier) {
-        // You crashed at ${outcome}!
-        console.log(`Crash: ${outcome}! You lost your bet of ${betAmount} !!`);
         // Update the balance
         setBalance((parseFloat(balance - betAmount)));
         // Add the outcome to the crash array
         setCrashArray([...crashArray, outcome]);
       } else {
-        // You survived this round
-        console.log(
-          `Crash: ${outcome} You won ${betAmount*multiplier}!`,
           // Update the balance
             setBalance(parseFloat(balance + ((outcome * multiplier) - betAmount)))
-        );
         // Add the outcome to the crash array
         setCrashArray([...crashArray, outcome]);
+        // delete the first element of the array if it has more than 10 elements
+        if (crashArray.length > 4) {
+          setCrashArray(crashArray.slice(1));
+        }
       }
-    }, outcome * 1000);
+    }, outcome*100);
   };
 
   // Handle the bet amount change
@@ -75,14 +66,20 @@ function CrashGame() {
       // Alert the user
       alert("You do not have enough balance to place that bet!");
     } else {
-      // Play the round
-      playRound();
+      try {
+          // Play the round
+          playRound();
+      } catch (error) {
+        console.log('An error occurred');
+      }
+
     }
   };
 
   return (
     <div>
-      <Counter outcome={outcome}/>
+   <p id="nbr">{number.toFixed(2)}</p>
+      
       <div className="balance">
         <label className="balance">${balance.toFixed(2)}</label>
       </div>
@@ -101,7 +98,7 @@ function CrashGame() {
       {crashArray[0]!=null && <label className="last-crash">Last Crashes:</label>}
       <div className="crashArray">
         {crashArray && crashArray.map((crash, index) => (
-          <span style={{color:multiplier<crash?"#4CAF50":"red"}} key={index} className="crash">{crash} </span>
+          <span style={{color:multiplier<crash?"green":"red"}} key={index} className="crash">{crash} </span>
         ))}
         </div>
     </div>
