@@ -1,28 +1,32 @@
 import React, { useEffect,useState } from "react";
 import './CrashGame.css'; 
 
-// Function to increment the number
-function Counter() {
-  const [number, setNumber] = useState(0.01);
+  // Function to increment the number
+  function Counter({ outcome }) {
+    const [number, setNumber] = useState(0.01);
+    console.log(outcome, number, "outcome, number");
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setNumber((prevNumber) => (prevNumber + 0.01));
-    }, 100);
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setNumber((number) => number + 0.01);
+      }, 10);
 
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
+      if (number >= outcome) {
+        clearInterval(interval);
+      }
 
-  return <p id="nbr">{number.toFixed(2)}</p>;
-}
+      return () => {
+        clearInterval(interval);
+      };
+    }, [outcome]);
+
+    return <p id="nbr">{number.toFixed(2)}</p>;
+  }
 
 function CrashGame() {
   const [balance, setBalance] = useState(1000);
   const [betAmount, setBetAmount] = useState(10);
   const [multiplier, setMultiplier] = useState(2);
-  const [roundOutcome, setRoundOutcome] = useState("");
   const [crashArray, setCrashArray] = useState([]);
   const [outcome, setOutcome] = useState(0);
   const playRound = () => {
@@ -46,7 +50,7 @@ function CrashGame() {
         // Add the outcome to the crash array
         setCrashArray([...crashArray, outcome]);
       }
-    }, 1000);
+    }, outcome * 1000);
   };
 
   // Handle the bet amount change
@@ -76,15 +80,9 @@ function CrashGame() {
     }
   };
 
-  // Handle the play again button
-  const handlePlayAgain = () => {
-    setCrashArray([]);
-    Counter("nbr");
-  };
-
   return (
     <div>
-      <Counter />
+      <Counter outcome={outcome}/>
       <div className="balance">
         <label className="balance">${balance.toFixed(2)}</label>
       </div>

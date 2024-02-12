@@ -16,8 +16,9 @@
 }
 
 .App-footer {
-  background-color: #282c34;
-  min-height: 156vh;
+  margin: 0px;
+  background-color: #000000;
+  min-height: 150vh;
   display: flex;
   flex-direction: column;
   padding: 20px;

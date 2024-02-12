@@ -7,6 +7,7 @@ function App() {
   return (
     <div className="App">
       <SineWave />
+      {/* <PIXIComponent /> */}
       <footer className="App-footer">
         <CrashGame />
       </footer>
