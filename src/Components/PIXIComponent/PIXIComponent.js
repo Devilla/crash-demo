@@ -1,9 +1,9 @@
 import { Stage, Container, AnimatedSprite } from '@pixi/react';
 import * as PIXI from 'pixi.js';
 import { Rocket } from '../Rocket/Rocket';  
-import './MyComponent.css';
+import './PIXIComponent.css';
 
-export const MyComponent = () =>
+export const PIXIComponent = () =>
 {
 
   let numberImages = ["assets/1.png", "assets/2.png", "assets/3.png", "assets/4.png", "assets/5.png", "assets/6.png", "assets/7.png", "assets/8.png", "assets/9.png", "assets/10.png"];
@@ -16,20 +16,10 @@ export const MyComponent = () =>
 
   return (
     <Stage width={350} height={300}>
-      <Container x={300} y={30}>
+      <Container x={150} y={150}>
         <Rocket />
       </Container>
-      <Container 
-      width={50} height={50}
-      position={[50, 250]}>
-      <AnimatedSprite
-        anchor={0.5}
-        textures={textureArray}
-        isPlaying={true}
-        initialFrame={0}
-        animationSpeed={0.1}
-      />
-    </Container>
+
     </Stage>
   );
 };

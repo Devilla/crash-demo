@@ -1,15 +1,15 @@
 import './App.css';
-import { MyComponent } from './Components/MyComponent/MyComponent';
+import { PIXIComponent } from './Components/PIXIComponent/PIXIComponent';
 import CrashGame from './Components/CrashGame/CrashGame';
+import SineWave from './Components/SineWave/SineWave';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Crash Game</h1>
-        <MyComponent />
+      <SineWave />
+      <footer className="App-footer">
         <CrashGame />
-      </header>
+      </footer>
     </div>
   );
 }

@@ -6,3 +6,11 @@
   height: 2px;
   background-color: green;
 }
+
+img{
+  width:15%;
+  margin-top: 20px;
+  object-fit: contain;
+  aspect-ratio: 3/2;
+  mix-blend-mode: color-burn;
+}

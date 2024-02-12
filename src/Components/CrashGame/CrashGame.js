@@ -1,5 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect,useState } from "react";
 import './CrashGame.css'; 
+
+// Function to increment the number
+function Counter() {
+  const [number, setNumber] = useState(0.01);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setNumber((prevNumber) => (prevNumber + 0.01));
+    }, 100);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
+  return <p id="nbr">{number.toFixed(2)}</p>;
+}
 
 function CrashGame() {
   const [balance, setBalance] = useState(1000);
@@ -10,13 +27,13 @@ function CrashGame() {
   const [outcome, setOutcome] = useState(0);
   const playRound = () => {
     // Generate a random outcome for the round  (between 1 and 10)  
-    setOutcome(parseInt(Math.random(100)*10)) //.toFixed(2);
+    setOutcome(parseFloat(Math.random(100)*10).toFixed(2));
     setTimeout(() => {
       if (outcome < multiplier) {
         // You crashed at ${outcome}!
         console.log(`Crash: ${outcome}! You lost your bet of ${betAmount} !!`);
         // Update the balance
-        setBalance((parseInt(balance - betAmount)));
+        setBalance((parseFloat(balance - betAmount)));
         // Add the outcome to the crash array
         setCrashArray([...crashArray, outcome]);
       } else {
@@ -24,7 +41,7 @@ function CrashGame() {
         console.log(
           `Crash: ${outcome} You won ${betAmount*multiplier}!`,
           // Update the balance
-            setBalance(parseInt(balance + ((outcome * multiplier) - betAmount)))
+            setBalance(parseFloat(balance + ((outcome * multiplier) - betAmount)))
         );
         // Add the outcome to the crash array
         setCrashArray([...crashArray, outcome]);
@@ -50,7 +67,7 @@ function CrashGame() {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Check if the bet amount is greater than the balance
-    if (parseInt(betAmount) > balance) {
+    if (parseFloat(betAmount) > balance) {
       // Alert the user
       alert("You do not have enough balance to place that bet!");
     } else {
@@ -59,13 +76,20 @@ function CrashGame() {
     }
   };
 
+  // Handle the play again button
+  const handlePlayAgain = () => {
+    setCrashArray([]);
+    Counter("nbr");
+  };
+
   return (
     <div>
+      <Counter />
       <div className="balance">
-        <label className="balance">Balance: {balance}</label>
+        <label className="balance">${balance.toFixed(2)}</label>
       </div>
       <form onSubmit={handleSubmit}>
-      <button className="button" type="submit">Start</button>
+      <button>Play</button>
       <span> </span>
         <label>
           Bet amount:
@@ -76,7 +100,6 @@ function CrashGame() {
           <input className="input" type="number" placeholder="2x" value={multiplier} onChange={handleMultiplierChange} />
         </label>
       </form>
-   
       {crashArray[0]!=null && <label className="last-crash">Last Crashes:</label>}
       <div className="crashArray">
         {crashArray && crashArray.map((crash, index) => (
