@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
-import './SineWave.css';
+import './Animation.css';
 
-const SineWave = () => {
+const Animation = () => {
     const canvasRef = useRef(null);
 
     useEffect(() => {
@@ -53,4 +53,4 @@ const SineWave = () => {
 
     };
 
-export default SineWave;
+export default Animation;

@@ -1,11 +1,11 @@
 import './App.css';
 import CrashGame from './Components/CrashGame/CrashGame';
-import SineWave from './Components/SineWave/SineWave';
+import Animation from './Components/Animation/Animation';
 
 function App() {
   return (
     <div className="App">
-      <SineWave />
+      <Animation />
       <footer className="App-footer">
         <CrashGame />
       </footer>

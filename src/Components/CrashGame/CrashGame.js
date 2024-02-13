@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from "react";
+import React, { useState } from "react";
 import './CrashGame.css';
 
 function CrashGame() {
@@ -39,7 +39,7 @@ function CrashGame() {
         // Add the outcome to the crash array
         setCrashArray([...crashArray, outcome]);
         // delete the first element of the array if it has more than 10 elements
-        if (crashArray.length > 4) {
+        if (crashArray.length >= 4) {
           setCrashArray(crashArray.slice(1));
         }
       }
