@@ -18,5 +18,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 
 # Snapshot:
-![image](https://github.com/Devilla/crash-demo/assets/15603274/6ba1200e-9489-4720-b5af-e80bd505bfc8)
+![image](https://github.com/Devilla/crash-demo/assets/15603274/88df7465-f6ae-479c-9287-69fa909d573d)
+
 
