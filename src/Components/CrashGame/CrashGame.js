@@ -17,8 +17,8 @@ function CrashGame() {
     // Generate a random outcome for the round  (between 1 and 10)  
     setOutcome(parseFloat(Math.random(100)*10).toFixed(2));
     const interval = setInterval(() => {
-      setNumber((number) => number + 0.01);
-    }, 10);
+      setNumber((number) => number + 0.1);
+    }, 1);
   
       //stop the interval when numbre is greater than the outcome
       if (number >= outcome) {
