@@ -1,11 +1,13 @@
 import './App.css';
 import CrashGame from './Components/CrashGame/CrashGame';
-import Animation from './Components/Animation/Animation';
+import SineWave from './Components/SineWave/SineWave';
+import ExponentialGraphCanvas from './Components/ExponentialGraphCanvas/ExponentialGraphCanvas';
 
 function App() {
   return (
     <div className="App">
-      <Animation />
+      {/* <SineWave /> */}
+      <ExponentialGraphCanvas />
       <footer className="App-footer">
         <CrashGame />
       </footer>

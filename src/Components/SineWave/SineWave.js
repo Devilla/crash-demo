@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
-import './Animation.css';
+import './SineWave.css';
 
-const Animation = () => {
+const SineWave = () => {
     const canvasRef = useRef(null);
 
     useEffect(() => {
@@ -14,7 +14,7 @@ const Animation = () => {
 
         let imgObj = new Image();
         imgObj.src = 'rocket.png'; 
-
+        // ctx.drawImage(imgObj, 0, 0); // Draw the image at (0, 0)
 
 
         const animate = () => {
@@ -36,7 +36,7 @@ const Animation = () => {
             ctx.lineWidth = 2;
             ctx.stroke();
 
-            ctx.drawImage(imgObj, 740, 150); // Draw the image at (0, 0)
+            ctx.drawImage(imgObj, 0, 0); // Draw the image at (0, 0)
             
             phase += speed;
             requestAnimationFrame(animate);
@@ -53,4 +53,4 @@ const Animation = () => {
 
     };
 
-export default Animation;
+export default SineWave;
