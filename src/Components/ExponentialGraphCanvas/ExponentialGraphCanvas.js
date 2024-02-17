@@ -25,11 +25,26 @@ const ExponentialGraphCanvas = () => {
 
     for (let x = 0; x < width; x++) {
       const y = height - func(x / 50); // Adjust scale and position
-      ctx.lineTo(x, y);
+      let currentX = 0;
+
+      const animateLine = () => {
+        if (currentX >= width) {
+          return;
+        }
+
+        const y = height - func(currentX / 4); // Adjust scale and position
+        ctx.lineTo(currentX, y);
+        ctx.stroke();
+
+        currentX++;
+
+        requestAnimationFrame(animateLine);
+      };
+
+      animateLine();
     }
 
     ctx.stroke();
-    ctx.drawImage(imgObj, 0, 0); // Draw the image at (0, 0)
   }, []);
 
   return <canvas ref={canvasRef} width={400} height={200} />;
