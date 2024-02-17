@@ -26,7 +26,6 @@ function CrashGame() {
       }
     setTimeout(() => {
       if (outcome < multiplier) {
-
         setRoundOutcome(`Multiplier crash at  ${outcome}!`);
         // Update the balance
         setBalance((parseFloat(balance - betAmount)));
@@ -80,11 +79,10 @@ function CrashGame() {
 
   return (
     <div>
-   <p id="nbr">{number.toFixed(2)}</p>
-      
+      <p id="nbr" style={{color:multiplier<number?"green":"red"}}>{number.toFixed(2)}</p>
       <div className="balance">
         <label className="balance">${balance.toFixed(2)}</label>
-        <label>{roundOutcome}</label>
+        <label style={{color:multiplier<roundOutcome?"green":"red"}}>{roundOutcome}</label>
       </div>
       <form onSubmit={handleSubmit}>
       <button>Play</button>
@@ -101,6 +99,7 @@ function CrashGame() {
       {crashArray[0]!=null && <label className="last-crash">Last Crashes:</label>}
       <div className="crashArray">
         {crashArray && crashArray.map((crash, index) => (
+
           <span style={{color:multiplier<crash?"green":"red"}} key={index} className="crash">{crash} </span>
         ))}
         </div>
