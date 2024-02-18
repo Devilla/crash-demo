@@ -46,7 +46,9 @@ const ExponentialGraphCanvas = () => {
     ctx.stroke();
   }, []);
 
-  return <canvas ref={canvasRef} width={400} height={200} />;
+  const maxWidth = window.innerWidth; // Set the maximum width for the canvas to the screen width
+  const innerHeight = window.innerHeight; // Set the height of the canvas to the screen height
+  return <canvas ref={canvasRef} width={Math.min(maxWidth, window.innerWidth)} height={innerHeight} />;
 };
 
 export default ExponentialGraphCanvas;
