@@ -24,7 +24,6 @@ const ExponentialGraphCanvas = () => {
     ctx.lineWidth = 2;
 
     for (let x = 0; x < width; x++) {
-      const y = height - func(x / 50); // Adjust scale and position
       let currentX = 0;
 
       const animateLine = () => {
