@@ -5,8 +5,8 @@ import ExponentialGraphCanvas from './Components/ExponentialGraphCanvas/Exponent
 function App() {
   return (
     <div className="App">
-      <ExponentialGraphCanvas />
       <footer className="App-footer">
+        <ExponentialGraphCanvas />
         <CrashGame />
       </footer>
     </div>

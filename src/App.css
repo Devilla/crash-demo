@@ -1,7 +1,7 @@
 .App {
   text-align: left;
-  width: 30%;
-  height: 30%;
+  /* width: 30%;
+  height: 30%; */
   margin-bottom: 100px;
 }
 
@@ -20,20 +20,12 @@
 
 .App-footer {
   margin: 0px;
-  background-color: #000000;
+  /* background-color: #000000; */
   min-height: 150vh;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  /* padding: 20px; */
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.App-logo {
-  width: 60px;
-  height: 60px;
-  mix-blend-mode: color-burn;
-  background-color: black;
-  
 }
