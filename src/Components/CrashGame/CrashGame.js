@@ -108,3 +108,16 @@ function CrashGame() {
 }
 
 export default CrashGame;
+
+
+// Done! You have successfully created a simple crash game using React. You can now run the app and play the game.
+
+// Conclusion
+// In this tutorial, you learned how to create a simple crash game using React. You also learned how to use the useState hook to manage the state of the game. You can now use this knowledge to create more complex games or applications using React. If you have any questions, feel free to ask in the comments below. Happy coding!
+
+// Testing the Game
+// To test the game, run the app using the following command:
+// npm run test
+
+// Deploying a React App to GitHub Pages
+// By:  Devendra Yadav
