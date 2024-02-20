@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import CrashGame from './CrashGame';
+import CrashGame from './CrashGameTest';
 
 describe('CrashGame', () => {
   test('renders CrashGame component', () => {
