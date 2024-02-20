@@ -20,7 +20,7 @@ const ExponentialGraphCanvas = () => {
 
     // Draw the graph
     ctx.beginPath();
-    ctx.strokeStyle = '#ff0000'; // Red color
+    ctx.strokeStyle = 'green'; // Green color
     ctx.lineWidth = 2;
 
     for (let x = 0; x < width; x++) {
