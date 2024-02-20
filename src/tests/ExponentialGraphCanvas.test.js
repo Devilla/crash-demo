@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import ExponentialGraphCanvas from './ExponentialGraphCanvas';
+import ExponentialGraphCanvas from '../Components/ExponentialGraphCanvas/ExponentialGraphCanvas';
 
 describe('ExponentialGraphCanvas', () => {
   test('renders canvas element', () => {
