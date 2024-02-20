@@ -44,6 +44,11 @@ body{
   margin:44px 0 0 0;
 }
 
+#crash-game{
+  font-size:62px;
+  margin:44px 0 0 0;
+}
+
 button{
   border:2px solid #fff;
   padding:4px;

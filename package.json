@@ -11,6 +11,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "react-testing-library": "^8.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -19,8 +20,17 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "moduleFileExtensions": [
+    "js",
+    "jsx",
+    "ts",
+    "tsx",
+    "json"
+  ],
+  
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.16.7"
+    "@babel/plugin-proposal-private-property-in-object": "^7.16.7",
+    "jest": "^27.5.1"
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +49,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+    "jest": {
+      "collectCoverage": true,
+      "collectCoverageFrom": [
+        "src/**/*.{js,jsx}",
+        "!**/node_modules/**",
+        "!**/vendor/**"
+      ]
+    }
 }

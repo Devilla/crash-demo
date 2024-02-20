@@ -78,7 +78,7 @@ function CrashGame() {
   };
 
   return (
-    <div>
+    <div id="crash-game">
       <p id="nbr" style={{color:multiplier<number?"green":"red"}}>{number.toFixed(2)}</p>
       <div className="balance">
         <label className="balance">${balance.toFixed(2)}</label>
