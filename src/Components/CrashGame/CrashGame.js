@@ -1,14 +1,21 @@
 import React, { useState } from "react";
 import './CrashGame.css';
 
-function CrashGame() {
+import { useSelector, useDispatch } from 'react-redux';
+import { setBetAmount, setMultiplier } from './actions';
+
+const CrashGame = () => {
   const [balance, setBalance] = useState(1000);
-  const [betAmount, setBetAmount] = useState(10);
-  const [multiplier, setMultiplier] = useState(2);
+  // const [betAmount, setBetAmount] = useState(10);
+  // const [multiplier, setMultiplier] = useState(2);
   const [crashArray, setCrashArray] = useState([]);
   const [outcome, setOutcome] = useState(0);
   const [number, setNumber] = useState(0.01);
   const [roundOutcome, setRoundOutcome] = useState("");
+  const dispatch = useDispatch();
+
+  const betAmount = useSelector(state => state.betAmount);
+  const multiplier = useSelector(state => state.multiplier);
 
     // Generate a random outcome for the round  (between 1 and 10)  
     // setOutcome(parseFloat();
@@ -50,6 +57,7 @@ function CrashGame() {
     // Check if the bet amount is greater than 0
     if (event.target.value > 0)
     setBetAmount(event.target.value);
+    dispatch(setBetAmount(event.target.value));
   };
 
     // Handle the Multiplier change
@@ -57,6 +65,9 @@ function CrashGame() {
       // Check if the multiplier is greater than 0
       if (event.target.value > 0)
       setMultiplier(event.target.value);
+
+    dispatch(setMultiplier(event.target.value));
+
     };
 
   // Handle the form submission
