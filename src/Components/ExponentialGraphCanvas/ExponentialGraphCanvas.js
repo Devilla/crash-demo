@@ -20,7 +20,7 @@ const ExponentialGraphCanvas = () => {
 
     // Draw the graph
     ctx.beginPath();
-    ctx.strokeStyle = '#ff0000'; // Red color
+    ctx.strokeStyle = 'green'; // Green color
     ctx.lineWidth = 2;
 
     for (let x = 0; x < width; x++) {
@@ -42,6 +42,11 @@ const ExponentialGraphCanvas = () => {
 
       animateLine();
     }
+
+    // place the rocket image at the end of the graph
+    imgObj.onload = function() {
+      ctx.drawImage(imgObj, width-50, height-func((width-50) / 4)-50, 50, 50);
+    };
 
     ctx.stroke();
   }, []);
