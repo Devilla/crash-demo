@@ -56,7 +56,7 @@ const CrashGame = () => {
   const handleBetChange = (event) => {
     // Check if the bet amount is greater than 0
     if (event.target.value > 0)
-    setBetAmount(event.target.value);
+    // setBetAmount(event.target.value);
     dispatch(setBetAmount(event.target.value));
   };
 
@@ -64,7 +64,7 @@ const CrashGame = () => {
     const handleMultiplierChange = (event) => {
       // Check if the multiplier is greater than 0
       if (event.target.value > 0)
-      setMultiplier(event.target.value);
+      // setMultiplier(event.target.value);
 
     dispatch(setMultiplier(event.target.value));
 
