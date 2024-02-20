@@ -43,6 +43,11 @@ const ExponentialGraphCanvas = () => {
       animateLine();
     }
 
+    //place the rocket image at the end of the graph
+    imgObj.onload = function() {
+      ctx.drawImage(imgObj, width-50, height-func((width-50) / 4)-50, 50, 50);
+    };
+
     ctx.stroke();
   }, []);
 
