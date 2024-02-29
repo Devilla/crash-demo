@@ -20,12 +20,10 @@
 
 .App-footer {
   margin: 0px;
-  /* background-color: #000000; */
-  min-height: 150vh;
+  /* min-height: 150vh;  */
   display: flex;
   flex-direction: column;
-  /* padding: 20px; */
-  justify-content: center;
+  /* justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: white;
 }

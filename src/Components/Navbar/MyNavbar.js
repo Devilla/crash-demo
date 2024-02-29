@@ -10,7 +10,7 @@ function MyNavbar() {
         <Nav className="mr-auto">
           <Nav.Link href="#home">Home</Nav.Link>
           <Nav.Link href="#link">Play</Nav.Link>
-          <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+          <NavDropdown title="User" id="basic-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">Login</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.2">Profile</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.3">Settings</NavDropdown.Item>

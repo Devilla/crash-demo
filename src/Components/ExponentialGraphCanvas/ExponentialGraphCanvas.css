@@ -1,5 +1,5 @@
 canvas {
-    position: reltive;
-    top: 100px;
-    left: 400px;
+    position: absolute;
+    /* top: 100px; */
+    /* left: 400px; */
 }

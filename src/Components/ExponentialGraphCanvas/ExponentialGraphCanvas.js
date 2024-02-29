@@ -21,7 +21,7 @@ const ExponentialGraphCanvas = () => {
     // Draw the graph
     ctx.beginPath();
     ctx.strokeStyle = 'green'; // Green color
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 0.05;
 
     for (let x = 0; x < width; x++) {
       let currentX = 0;
@@ -51,7 +51,7 @@ const ExponentialGraphCanvas = () => {
     ctx.stroke();
   }, []);
 
-  return <canvas ref={canvasRef} width={400} height={200} />;
+  return <canvas ref={canvasRef} width={250} height={100} />;
 };
 
 export default ExponentialGraphCanvas;

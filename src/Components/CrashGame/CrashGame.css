@@ -7,7 +7,7 @@
   input {
     border: none;
     padding: 8px;
-    width: 5%;
+    width: 25%;
     text-align: center;
     font-size: small;
     margin: 10px 5px;
@@ -35,18 +35,18 @@
 
 body{
   background:#282c34;
-  text-align:center;
+  /* text-align:center; */
   color:green
 }
 
 #nbr{
   font-size:62px;
-  margin:44px 0 0 0;
+  /* margin:44px 0 0 0; */
 }
 
 #crash-game{
   font-size:62px;
-  margin:44px 0 0 0;
+  /* margin:44px 0 0 0; */
 }
 
 button{
